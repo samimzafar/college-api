@@ -1,8 +1,10 @@
-"use strict";
-const table = "students";
+'use strict';
+
+const { TableNames } = require("../../utils/Constants");
+
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable(table, {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable(TableNames.HOSTELS, {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,19 +15,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      age: {
+      no_of_seats: {
         type: Sequelize.INTEGER,
         allowNull: true,
-      },
-      phone_number: {
-        type: Sequelize.STRING,
-        allowNull: true,
-        unique: true,
-      },
-      archived: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
@@ -37,7 +29,8 @@ module.exports = {
       },
     });
   },
-  down: (queryInterface) => {
-    return queryInterface.dropTable(table);
-  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable(TableNames.HOSTELS);
+  }
 };
