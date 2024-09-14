@@ -1,4 +1,4 @@
-# Hype API's (Node js)
+# College API's (Node js)
 
 - This contains code of backend APIs developed in Node/Express.
 
