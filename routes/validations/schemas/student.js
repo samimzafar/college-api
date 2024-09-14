@@ -5,5 +5,5 @@ module.exports = {
     instituteId: Joi.number().allow("", null),
     gradeId: Joi.number().allow("", null),
     phoneNumber: Joi.string().required().min(13).max(13),
-  })
+  }),
 };

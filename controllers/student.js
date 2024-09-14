@@ -6,5 +6,5 @@ module.exports = {
     } catch (error) {
       next(error);
     }
-  }
+  },
 };

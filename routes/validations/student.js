@@ -1,7 +1,5 @@
 const {
-  student: {
-    loginSchema
-  },
+  student: { loginSchema },
 } = require("./schemas");
 const ApiError = require("../../utils/ApiError");
 module.exports = {
