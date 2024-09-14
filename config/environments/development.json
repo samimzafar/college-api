@@ -1,0 +1,12 @@
+{
+  "port": 4000,
+  "db": {
+    "host": "127.0.0.1",
+    "name": "CollegeDb",
+    "username": "root",
+    "password": "12345678"
+  },
+  "signIn": {
+    "jwtSecret": "secret"
+  }
+}
