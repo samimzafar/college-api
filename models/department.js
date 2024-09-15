@@ -1,10 +1,9 @@
 ("use strict");
 const moment = require("moment");
-const { Op } = require("sequelize");
 const { TableNames, ForeignKeys } = require("../utils/Constants");
 module.exports = (sequelize, DataTypes) => {
-  const Hostel = sequelize.define(
-    TableNames.HOSTELS,
+  const Department = sequelize.define(
+    TableNames.DEPARTMENTS,
     {
       id: {
         allowNull: false,
@@ -14,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: true,
-      },
-      no_of_seats: {
-        type: DataTypes.INTEGER,
         allowNull: true,
       },
       createdAt: {
@@ -30,13 +25,14 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   );
-  Hostel.beforeCreate((hostel) => {
-    hostel.dataValues.createdAt = moment().unix();
-    hostel.dataValues.updatedAt = moment().unix();
+  Department.beforeCreate((department) => {
+    department.dataValues.createdAt = moment().unix();
+    department.dataValues.updatedAt = moment().unix();
   });
 
-  Hostel.beforeUpdate((hostel) => {
-    hostel.dataValues.updatedAt = moment().unix();
+  Department.beforeUpdate((department) => {
+    department.dataValues.updatedAt = moment().unix();
   });
-  return Hostel;
+
+  return Department;
 };

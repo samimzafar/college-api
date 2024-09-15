@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
-      phone_number: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        unique: true,
-      },
       fk_hostel_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue: null
+      },
+      fk_faculty_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
         defaultValue: null
@@ -63,9 +63,14 @@ module.exports = (sequelize, DataTypes) => {
   });
   // Association with Hostel
   Student.associate = (models) => {
-    Student.belongsTo(models.Hostel, {
+    Student.belongsTo(models.Hostels, {
+      as: 'hostel',
       foreignKey: ForeignKeys.FK_HOSTEL,
-      as: TableNames.HOSTEL,
+    });
+
+    Student.belongsTo(models.Faculties, {
+      as: 'faculty',
+      foreignKey: ForeignKeys.FK_FACULTY,
     });
   };
   return Student;

@@ -1,10 +1,9 @@
 ("use strict");
 const moment = require("moment");
-const { Op } = require("sequelize");
 const { TableNames, ForeignKeys } = require("../utils/Constants");
 module.exports = (sequelize, DataTypes) => {
-  const Hostel = sequelize.define(
-    TableNames.HOSTELS,
+  const Faculty = sequelize.define(
+    TableNames.FACULTIES,
     {
       id: {
         allowNull: false,
@@ -16,9 +15,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      no_of_seats: {
+      salary: {
         type: DataTypes.INTEGER,
         allowNull: true,
+      },
+      fk_dept_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue: null
       },
       createdAt: {
         allowNull: false,
@@ -30,13 +34,22 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   );
-  Hostel.beforeCreate((hostel) => {
-    hostel.dataValues.createdAt = moment().unix();
-    hostel.dataValues.updatedAt = moment().unix();
+  Faculty.beforeCreate((faculty) => {
+    faculty.dataValues.createdAt = moment().unix();
+    faculty.dataValues.updatedAt = moment().unix();
   });
 
-  Hostel.beforeUpdate((hostel) => {
-    hostel.dataValues.updatedAt = moment().unix();
+  Faculty.beforeUpdate((faculty) => {
+    faculty.dataValues.updatedAt = moment().unix();
   });
-  return Hostel;
+
+  // Association with Student
+  Faculty.associate = (models) => {
+    Faculty.belongsTo(models.Departments, {
+      as: 'department',
+      foreignKey: ForeignKeys.FK_DEPT,
+    });
+  };
+
+  return Faculty;
 };
