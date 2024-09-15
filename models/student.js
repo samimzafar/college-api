@@ -1,6 +1,6 @@
 ("use strict");
 const moment = require("moment");
-const { Op } = require("sequelize");
+const { Op, col } = require("sequelize");
 const { TableNames, ForeignKeys } = require("../utils/Constants");
 module.exports = (sequelize, DataTypes) => {
   const Student = sequelize.define(
@@ -71,6 +71,40 @@ module.exports = (sequelize, DataTypes) => {
     Student.belongsTo(models.Faculties, {
       as: "faculty",
       foreignKey: ForeignKeys.FK_FACULTY,
+    });
+  };
+
+  Student.fetchStudentDetails = async () => {
+    const Models = sequelize.models;
+    // const { departments, hostels, faculties } = sequelize.models
+    return await Student.findAll({
+      include: [
+        {
+          model: Models.hostels,
+          as: "hostel",
+          attributes: [],
+        },
+        {
+          model: Models.faculties,
+          as: "faculty",
+          attributes: [],
+          include: [
+            {
+              model: Models.departments,
+              as: "department",
+              attributes: [],
+            },
+          ],
+        },
+      ],
+      attributes: [
+        "id",
+        "name",
+        "age",
+        [col("hostel.name"), "hostelName"],
+        [col("faculty.name"), "facultyName"],
+        [col("faculty->department.name"), "deptName"],
+      ],
     });
   };
   return Student;
