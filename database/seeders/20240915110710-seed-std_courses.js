@@ -2,7 +2,7 @@
 const moment = require("moment");
 const { TableNames } = require("../../utils/Constants");
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface) => {
     return queryInterface.bulkInsert(TableNames.STD_COURSES, [
       {
         fk_std_id: 1, // Replace with valid Student ID
@@ -37,7 +37,7 @@ module.exports = {
     ]);
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface) => {
     return queryInterface.bulkDelete(TableNames.STD_COURSES, null, {});
   },
 };

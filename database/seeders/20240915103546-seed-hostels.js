@@ -3,7 +3,7 @@
 const { TableNames } = require("../../utils/Constants");
 const moment = require("moment");
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface) => {
     return queryInterface.bulkInsert(
       TableNames.HOSTELS,
       [
@@ -42,7 +42,7 @@ module.exports = {
     );
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface) => {
     return queryInterface.bulkDelete(TableNames.HOSTELS, null, {});
   },
 };

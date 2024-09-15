@@ -1,6 +1,6 @@
 ("use strict");
 const moment = require("moment");
-const { TableNames, ForeignKeys } = require("../utils/Constants");
+const { TableNames } = require("../utils/Constants");
 module.exports = (sequelize, DataTypes) => {
   const Department = sequelize.define(TableNames.DEPARTMENTS, {
     id: {
