@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const moment = require("moment");
 const { TableNames, ForeignKeys } = require("../utils/Constants");
@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       fk_faculty_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: null
+        defaultValue: null,
       },
       fk_std_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: null
+        defaultValue: null,
       },
       createdAt: {
         allowNull: false,
@@ -55,11 +55,11 @@ module.exports = (sequelize, DataTypes) => {
   Subject.associate = (models) => {
     Subject.belongsTo(models.Faculties, {
       foreignKey: ForeignKeys.FK_FACULTY,
-      as: 'faculty',
+      as: "faculty",
     });
     Subject.belongsTo(models.Students, {
       foreignKey: ForeignKeys.FK_STUDENT,
-      as: 'student',
+      as: "student",
     });
   };
 

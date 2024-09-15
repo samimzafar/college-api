@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const { TableNames } = require("../../utils/Constants");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -23,10 +23,10 @@ module.exports = {
         defaultValue: null,
         references: {
           model: TableNames.DEPARTMENTS, // References the departments table
-          key: 'id',
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL",
       },
       createdAt: {
         allowNull: false,

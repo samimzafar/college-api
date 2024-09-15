@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const moment = require("moment");
 const { TableNames } = require("../../utils/Constants");
 module.exports = {
@@ -39,5 +39,5 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete(TableNames.STD_COURSES, null, {});
-  }
+  },
 };

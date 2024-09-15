@@ -23,12 +23,12 @@ module.exports = (sequelize, DataTypes) => {
       fk_hostel_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: null
+        defaultValue: null,
       },
       fk_faculty_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: null
+        defaultValue: null,
       },
       archived: {
         type: DataTypes.BOOLEAN,
@@ -64,12 +64,12 @@ module.exports = (sequelize, DataTypes) => {
   // Association with Hostel
   Student.associate = (models) => {
     Student.belongsTo(models.Hostels, {
-      as: 'hostel',
+      as: "hostel",
       foreignKey: ForeignKeys.FK_HOSTEL,
     });
 
     Student.belongsTo(models.Faculties, {
-      as: 'faculty',
+      as: "faculty",
       foreignKey: ForeignKeys.FK_FACULTY,
     });
   };

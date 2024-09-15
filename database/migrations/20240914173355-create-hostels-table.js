@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const { TableNames } = require("../../utils/Constants");
 
@@ -32,5 +32,5 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable(TableNames.HOSTELS);
-  }
+  },
 };

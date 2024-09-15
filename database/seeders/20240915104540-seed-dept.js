@@ -1,41 +1,41 @@
-'use strict';
+"use strict";
 const moment = require("moment");
 const { TableNames } = require("../../utils/Constants");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(TableNames.DEPARTMENTS, [
       {
-        name: 'Computer Science',
+        name: "Computer Science",
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Electrical Engineering',
+        name: "Electrical Engineering",
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Mechanical Engineering',
+        name: "Mechanical Engineering",
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Civil Engineering',
+        name: "Civil Engineering",
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Business Administration',
+        name: "Business Administration",
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Physics',
+        name: "Physics",
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Mathematics',
+        name: "Mathematics",
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
@@ -44,5 +44,5 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete(TableNames.DEPARTMENTS, null, {});
-  }
+  },
 };

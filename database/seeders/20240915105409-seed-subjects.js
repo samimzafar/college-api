@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const moment = require("moment");
 const { TableNames } = require("../../utils/Constants");
 
@@ -6,21 +6,21 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(TableNames.SUBJECTS, [
       {
-        name: 'Mathematics',
+        name: "Mathematics",
         fk_faculty_id: 1, // Replace with a valid Faculty ID
         fk_std_id: 1, // Replace with a valid Student ID
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Physics',
+        name: "Physics",
         fk_faculty_id: 2, // Replace with a valid Faculty ID
         fk_std_id: 2, // Replace with a valid Student ID
         createdAt: moment().unix(),
         updatedAt: moment().unix(),
       },
       {
-        name: 'Chemistry',
+        name: "Chemistry",
         fk_faculty_id: 1, // Replace with a valid Faculty ID
         fk_std_id: 3, // Replace with a valid Student ID
         createdAt: moment().unix(),
@@ -31,5 +31,5 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete(TableNames.SUBJECTS, null, {});
-  }
+  },
 };

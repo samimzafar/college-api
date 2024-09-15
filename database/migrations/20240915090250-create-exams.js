@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const { TableNames } = require("../../utils/Constants");
 
@@ -12,11 +12,11 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       type: {
-        type: Sequelize.ENUM('annual', 'mid', 'sessional'), // Enum field
+        type: Sequelize.ENUM("annual", "mid", "sessional"), // Enum field
         allowNull: false,
       },
       shift: {
-        type: Sequelize.ENUM('morning', 'evening'), // Enum field
+        type: Sequelize.ENUM("morning", "evening"), // Enum field
         allowNull: false,
       },
       fk_dept_id: {
@@ -25,10 +25,10 @@ module.exports = {
         defaultValue: null,
         references: {
           model: TableNames.DEPARTMENTS, // References the departments table
-          key: 'id',
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL",
       },
       createdAt: {
         allowNull: false,

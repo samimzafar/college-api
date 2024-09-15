@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const moment = require("moment");
 const { TableNames, ForeignKeys } = require("../utils/Constants");
@@ -14,17 +14,17 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       },
       type: {
-        type: DataTypes.ENUM('annual', 'mid', 'sessional'), // Enum field
+        type: DataTypes.ENUM("annual", "mid", "sessional"), // Enum field
         allowNull: false,
       },
       shift: {
-        type: DataTypes.ENUM('morning', 'evening'), // Enum field
+        type: DataTypes.ENUM("morning", "evening"), // Enum field
         allowNull: false,
       },
       fk_dept_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: null
+        defaultValue: null,
       },
       createdAt: {
         allowNull: false,
@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
   Exam.associate = (models) => {
     Exam.belongsTo(models.Departments, {
       foreignKey: ForeignKeys.FK_DEPARTMENT,
-      as: 'department',
+      as: "department",
     });
   };
   return Exam;

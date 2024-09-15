@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const { TableNames } = require("../../utils/Constants");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -14,20 +14,20 @@ module.exports = {
         allowNull: false,
         references: {
           model: TableNames.STUDENTS, // References the students table
-          key: 'id',
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       fk_course_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: TableNames.COURSES, // References the courses table
-          key: 'id',
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
